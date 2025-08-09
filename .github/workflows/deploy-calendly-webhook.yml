@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'lambda_functions/calendly_webhook/**'
 
 jobs:
   deploy:
