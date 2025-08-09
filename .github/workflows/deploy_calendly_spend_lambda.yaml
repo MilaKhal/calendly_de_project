@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'lambda_functions/calendly_spend/**'
+      - 'lambda_functions/calendlySpendData/**'
 
   workflow_dispatch: 
 
@@ -35,11 +35,11 @@ jobs:
           aws-region: us-east-1
 
       - name: Build SAM app
-        run: sam build -t lambda_functions/calendly_spend/template.yaml
+        run: sam build -t lambda_functions/calendlySpendData/template.yaml
 
       - name: Deploy SAM stack
         run: |
-          sam deploy -t lambda_functions/calendly_spend/template.yaml \
+          sam deploy -t lambda_functions/calendlySpendData/template.yaml \
           --no-confirm-changeset \
           --stack-name calendlySpendData-stack \
           --capabilities CAPABILITY_IAM \
