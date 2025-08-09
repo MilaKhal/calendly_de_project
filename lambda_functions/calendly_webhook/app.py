@@ -6,7 +6,7 @@ import traceback
 
 
 s3 = boto3.client('s3')
-BUCKET_NAME = 'de-calendly-project-bucket' # can be in template/config
+BUCKET_NAME = 'de-calendly-project-bucket' 
 ALLOWED_EVENT_TYPES = {
     "https://api.calendly.com/event_types/d639ecd3-8718-4068-955a-436b10d72c78",
     "https://api.calendly.com/event_types/dbb4ec50-38cd-4bcd-bbff-efb7b5a6f098",
