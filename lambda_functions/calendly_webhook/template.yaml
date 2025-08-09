@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Calendly webhook Lambda
+
+Resources:
+  calendlyWebhookHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: app.lambda_handler     # adjust if your file or function name differs
+      Runtime: python3.10             # <-- Python version here
+      MemorySize: 128
+      Timeout: 10
+      Policies:
+        - S3WritePolicy:
+            BucketName: de-calendly-project-bucket
+      Environment:
+        Variables:
+          BUCKET_NAME: de-calendly-project-bucket
