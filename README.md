@@ -27,8 +27,11 @@ The goal is to analyze Calendly booking events alongside marketing spend data fr
   <img width="1310" height="842" alt="image" src="https://github.com/user-attachments/assets/ecf4e78a-fce0-4429-b191-059efe19c46c" />
 
 
-### 3. Dashboarding
+### 3. Dashboarding 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendlydeproject-appyqylkjarclbyan5flhr.streamlit.app/)
 - A Streamlit app queries Athena to build an interactive dashboard, allowing users to explore booking trends and correlate them with marketing spend.
+  <img width="1850" height="581" alt="image" src="https://github.com/user-attachments/assets/64faa2cf-00a6-498f-8f1c-d429d32f65ca" />
+
 
 ### 4. Deployment & Orchestration
 - GitHub workflows manage CI/CD processes including:
@@ -52,5 +55,4 @@ The goal is to analyze Calendly booking events alongside marketing spend data fr
 
 ---
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendlydeproject-appyqylkjarclbyan5flhr.streamlit.app/)
 
