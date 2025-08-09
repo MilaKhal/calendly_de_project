@@ -6,7 +6,7 @@ Resources:
   calendlySpendData:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: calendlySpendData
+      FunctionName: calendlySpendDataGitHubDeployed
       CodeUri: .
       Handler: calendlySpendData.lambda_handler   # adjust if your file name differs
       Runtime: python3.10
