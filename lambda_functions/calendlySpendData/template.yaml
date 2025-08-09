@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Calendly Spend Data Lambda deployment
+
+Resources:
+  calendlySpendData:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: calendlySpendData
+      CodeUri: .
+      Handler: calendlySpendData.lambda_handler   # adjust if your file name differs
+      Runtime: python3.10
+      MemorySize: 128
+      Timeout: 30
+      Policies:
+        - S3WritePolicy:
+            BucketName: de-calendly-project-bucket
+      Environment:
+        Variables:
+          BUCKET_NAME: de-calendly-project-bucket
