@@ -28,4 +28,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
-          aws glue start-job-run --job-name CalendlyDailyEventJob
+          aws glue start-job-run --job-name CalendlyDailyEventJob --region $AWS_DEFAULT_REGION
