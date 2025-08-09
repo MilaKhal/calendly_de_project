@@ -9,6 +9,7 @@ The goal is to analyze Calendly booking events alongside marketing spend data fr
 ---
 
 ## Architecture & Workflow
+
 <img width="4536" height="1424" alt="image" src="https://github.com/user-attachments/assets/24ef976a-06b6-451b-a74a-c81fba1807f9" />
 
 
@@ -22,6 +23,9 @@ The goal is to analyze Calendly booking events alongside marketing spend data fr
 - This job transforms and flattens the raw JSON booking data and writes it into a staging table in AWS Athena.
 - The final curated tables are exposed as Athena views.
 - A Glue crawler updates the daily spend table partitions in Athena based on new data arrivals.
+
+  <img width="1310" height="842" alt="image" src="https://github.com/user-attachments/assets/ecf4e78a-fce0-4429-b191-059efe19c46c" />
+
 
 ### 3. Dashboarding
 - A Streamlit app queries Athena to build an interactive dashboard, allowing users to explore booking trends and correlate them with marketing spend.
