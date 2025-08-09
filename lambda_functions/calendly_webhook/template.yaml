@@ -1,14 +1,15 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Calendly webhook Lambda
+Description: Calendly webhook Lambda with existing HTTP API Gateway trigger
 
 Resources:
   calendlyWebhookHandler:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: calendlyWebhookHandler
       CodeUri: .
-      Handler: app.lambda_handler     # adjust if your file or function name differs
-      Runtime: python3.10             # <-- Python version here
+      Handler: app.lambda_handler
+      Runtime: python3.10
       MemorySize: 128
       Timeout: 10
       Policies:
@@ -17,3 +18,23 @@ Resources:
       Environment:
         Variables:
           BUCKET_NAME: de-calendly-project-bucket
+      Events:
+        CalendlyWebhookHttpApi:
+          Type: HttpApi
+          Properties:
+            ApiId: uvzfms9k43   # hardcoded existing API ID
+            Path: /webhook
+            Method: POST
+
+Outputs:
+  LambdaFunctionName:
+    Description: Lambda function name
+    Value: !Ref calendlyWebhookHandler
+
+  HttpApiId:
+    Description: HTTP API Gateway ID
+    Value: uvzfms9k43
+
+  HttpApiName:
+    Description: HTTP API Gateway Name
+    Value: calendlyWebhook-2
