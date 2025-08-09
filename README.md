@@ -1,4 +1,4 @@
 # calendly_de_project
 Event Analytics / Event Bookings
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendlydeproject-appyqylkjarclbyan5flhr.streamlit.app/)
 
-<iframe src="https://calendlydeproject-appyqylkjarclbyan5flhr.streamlit.app/?embed=true" width="100%" height="450" frameborder="0"></iframe>
