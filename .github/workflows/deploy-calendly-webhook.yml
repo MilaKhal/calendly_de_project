@@ -36,7 +36,8 @@ jobs:
         run: sam build -t lambda_functions/calendly_webhook/template.yaml
 
       - name: Deploy SAM stack
-        run: sam deploy -t lambda_functions/calendly_webhook/template.yaml \
+        run: |
+          sam deploy -t lambda_functions/calendly_webhook/template.yaml \
           --no-confirm-changeset \
           --stack-name calendlyWebhookHandler-stack \
           --capabilities CAPABILITY_IAM \
