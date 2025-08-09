@@ -1,0 +1,37 @@
+name: Deploy Calendly Webhook Lambda
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install AWS CLI and SAM CLI
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli aws-sam-cli
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1   # Change if needed
+
+      - name: Build SAM app
+        run: sam build -t lambda_functions/calendly_webhook/template.yaml
+
+      - name: Deploy SAM stack
+        run: sam deploy -t lambda_functions/calendly_webhook/template.yaml --no-confirm-changeset --stack-name calendlyWebhookHandler-stack --capabilities CAPABILITY_IAM
