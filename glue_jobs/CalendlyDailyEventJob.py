@@ -190,6 +190,8 @@ for folder_path in date_folders:
     for c in timestamp_cols:
         df = df.withColumn(c, to_timestamp(col(c), timestamp_format))
 
+    df = df.dropDuplicates(["event"])
+
     # Write to Parquet partition folder
     output_path = f"s3://{raw_bucket}/{processed_prefix}event_date={date_part}/"
     df.write.mode("append").parquet(output_path)
@@ -217,3 +219,4 @@ for folder_path in date_folders:
 
 sc.stop()
 print("Glue job finished.")
+
